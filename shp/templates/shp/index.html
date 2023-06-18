@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="PetStore"/>
+    <meta name="keywords" content="Petstore"/>
+    <meta name="author" content="hastech"/>
+
+    <title>PetStore</title>
+
+    <!--== Favicon ==-->
+    <link rel="shortcut icon" href="../../../media/img-shop/icon.png" type="image/x-icon" />
+
+    <!--== Google Fonts ==-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600&display=swap" rel="stylesheet">
+
+    <!--== Bootstrap CSS ==-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"  type="text/css">
+    <!--== Font Awesome Min Icon CSS ==-->
+    <link href="../../static/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!--== 7 Stroke Icon CSS ==-->
+    <link href="../../static/css/pe-icon-7-stroke.css" rel="stylesheet" type="text/css" />
+    <!--== Swiper CSS ==-->
+    <link href="../../static/css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <!--== Fancybox Min CSS ==-->
+    <link href="../../static/css/fancybox.min.css" rel="stylesheet" type="text/css" />
+    <!--== Range Slider Min CSS ==-->
+    <link href="../../static/css/ion.rangeSlider.min.css" rel="stylesheet" type="text/css" />
+
+    <!--== Main Style CSS ==-->
+    <link href="../../static/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<!--wrapper start-->
+<div class="wrapper">
+
+  <!--== Start Preloader Content ==-->
+  <div class="preloader-wrap">
+    <div class="preloader">
+      <div class="dog-head"></div>
+      <div class="dog-body"></div>
+    </div>
+  </div>
+  <!--== End Preloader Content ==-->
+
+  <!--== Start Header Wrapper ==-->
+  <header class="header-area transparent">
+    <div class="container">
+      <div class="row no-gutter align-items-center position-relative">
+        <div class="col-12">
+          <div class="header-align">
+            <div class="header-align-start">
+              <div class="header-logo-area">
+                <a href="">
+                  <img class="logo-main" src="../../../media/img-shop/logo.PNG" width="158" height="36" alt="Logo" />
+                </a>
+              </div>
+            </div>
+            <div class="header-align-center">
+              <div class="header-navigation-area position-relative">
+                <ul class="main-menu nav">
+                  <li><a href="/"><span>Главная</span></a></li>
+                  <li><a href="/about-us"><span>О нас</span></a></li>
+                  <li><a href="/contact"><span>Контакты</span></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="header-align-end">
+              <div class="header-action-area">
+                <div class="shopping-search">
+                  <button class="shopping-search-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasSearch" aria-controls="AsideOffcanvasSearch"><i class="pe-7s-search icon"></i></button>
+                </div>
+                <div class="shopping-account">
+                  {% if user.is_authenticated %}
+                  <a class="shopping-account-btn" href="/account">
+                    <i class="pe-7s-users icon"></i>
+                  </a>
+                    {% else %}
+                    <a class="shopping-account-btn" href="/account-login">
+                    <i class="pe-7s-users icon"></i>
+                  </a>
+                    {% endif %}
+                </div>
+                <div class="shopping-cart">
+                  <button class="shopping-cart-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasCart" aria-controls="AsideOffcanvasCart">
+                    <i class="pe-7s-shopbag icon"></i>
+                  </button>
+                </div>
+                <button class="btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
+                  <i class="pe-7s-menu"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!--== End Header Wrapper ==-->
+  
+  <main class="main-content">
+    <!--== Start Hero Area Wrapper ==-->
+    <section class="home-slider-area">
+      <div class="swiper home-slider-container default-slider-container">
+        <div class="swiper-wrapper home-slider-wrapper slider-default">
+          <div class="swiper-slide">
+            <div class="slider-content-area" data-bg-img-shop="../../../media/img-shop/slider/slider-bg.webp">
+              <div class="container">
+                <div class="slider-container">
+                  <div class="row justify-content-between align-items-center">
+                    <div class="col-sm-6 col-md-6">
+                      <div class="slider-content">
+                        <div class="content">
+                          <div class="sub-title-box">
+                            <h5 class="sub-title">Успей купить</h5>
+                          </div>
+                          <div class="title-box">
+                            <h2 class="title">Скидки до 30%</h2>
+                          </div>
+                          <div class="btn-box">
+                            <a class="btn-theme text-dark" href="/shop">Купить</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-6">
+                      <div class="slider-thumb mousemove">
+                        <div class="thumb">
+                          <img class="" src="../../../media/img-shop/shop/banner/diet-selection-dogs.png" alt="Image-HasTech">
+                          <div class="shape-one"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="slider-content-two-area" data-bg-img-shop="../../../media/img-shop/shop/banner/adult_dog_new.jpg">
+              <div class="container">
+                <div class="slider-container">
+                  <div class="row justify-content-sm-end justify-content-center align-items-center">
+                    <div class="col-sm-8 col-md-6">
+                      <div class="slider-content">
+                        <div class="content">
+                          <div class="sub-title-box">
+                            <h5 class="sub-title">100% Сбалансированые рационы для вашей собаки.</h5>
+                          </div>
+                          <div class="title-box">
+                            <h2 class="title">Выбери корм для своей собаки.</h2>
+                          </div>
+                          <div class="desc-box">
+                            <p class="desc">Рационы для собак.</p>
+                          </div>
+                          <div class="btn-box">
+                            <a class="btn-theme text-dark" href="shop/">Купить</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="home-overlay"></div>
+            </div>
+          </div>
+        </div>
+
+        <!--== Add Swiper Arrows ==-->
+        <div class="swiper-btn-wrap">
+          <div class="swiper-btn-prev">
+            <i class="pe-7s-angle-left"></i>
+          </div>
+          <div class="swiper-btn-next">
+            <i class="pe-7s-angle-right"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Hero Area Wrapper ==-->
+
+    <!--== Start Product Area Wrapper ==-->
+    <section class="product-area product-default-area">
+      <div class="container pt--0">
+        <div class="row">
+          <div class="col-12">
+            <div class="section-title mb-45 mb-sm-20 shape-center text-center">
+              <h5 class="sub-title">Популярные</h5>
+              <h2 class="title">Новинки</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          {% for item in item %}
+
+          <div class="col-sm-6 col-xl-3">
+            <!--== Start Product Item ==-->
+            <div class="product-item">
+              <div class="product-thumb">
+                <a href="/single-product/{{item.id}}">
+                  <img src="{{item.image.url}}" width="270" height="320" alt="Image-HasTech">
+                </a>
+              </div>
+              <div class="product-info">
+                <h4 class="title"><a href="/single-product/{{item.id}}" class="item_name">{{item.item_name}}</a></h4>
+                <div class="prices">
+                  <span class="price">{{item.price}} ₽</span>
+                </div>
+              </div>
+              <div class="product-action">
+                <div class="product-action-links">
+                  <form action="/add/{{item.id}}" method="post">
+                    {% csrf_token %}
+                    <input class="btn-product-cart" type="submit" value="Добавить в корзину">
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!--== End product Item ==-->
+          </div>
+
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <!--== End Product Area Wrapper ==-->
+
+    <!--== Start Divider Area Wrapper ==-->
+    <section class="bg-theme-color position-relative z-index-1">
+      <div class="container-fluid p--0">
+        <div class="row divider-style1">
+          <div class="col-lg-3 col-xl-4">
+            <div class="divider-thumb divider-thumb-left">
+              <img src="../../../media/img-shop/shop/banner/2_3_1666334028.webp" width="351" height="435" alt="Image-HasTech">
+              <div class="shape-circle"></div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-xl-4">
+            <div class="divider-content text-center">
+              <h5 class="sub-title">Скида 40%</h5>
+              <h2 class="title">Гуляй в любую погоду</h2>
+              <a class="btn-theme text-dark" href="/shop">Купить</a>
+              <img class="shape-object" src="../../../media/img-shop/shape/object1.webp" width="316" height="302" alt="Image-HasTech">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Divider Area Wrapper ==-->
+  </main>
+
+  <!--== Start Footer Area Wrapper ==-->
+  <footer class="footer-area">
+    <!--== Start Footer Main ==-->
+    <div class="footer-main">
+      <div class="container pt--0 pb--0">
+        <div class="row">
+          <div class="col-md-6 col-lg-3">
+            <div class="widget-item widget-about">
+              <h4 class="widget-title">О нас</h4>
+              <p class="desc">Описание компании</p>
+              <div class="social-icons">
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a>
+                <a href="https://dribbble.com/" target="_blank" rel="noopener"><i class="fa fa-dribbble"></i></a>
+                <a href="https://www.pinterest.com/" target="_blank" rel="noopener"><i class="fa fa-pinterest-p"></i></a>
+                <a href="https://twitter.com/" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="widget-item nav-menu-item1">
+              <h4 class="widget-title">Информация</h4>
+              <h4 class="widget-collapsed-title collapsed" data-bs-toggle="collapse" data-bs-target="#widgetId-1">Information</h4>
+              <div id="widgetId-1" class="collapse widget-collapse-body">
+                <div class="collapse-body">
+                  <div class="widget-menu-wrap">
+                    <ul class="nav-menu">
+                      <li><a href="/about-us">О нас</a></li>
+                      <li><a href="">Условия доставки</a></li>
+                      <li><a href="">Политика конфиденциальности</a></li>
+                      <li><a href="">Правила и условия</a></li>
+                      <li><a href="/contact">Контакты</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="widget-item nav-menu-item2">
+              <h4 class="widget-title">Еще</h4>
+              <h4 class="widget-collapsed-title collapsed" data-bs-toggle="collapse" data-bs-target="#widgetId-2">Our Policy</h4>
+              <div id="widgetId-2" class="collapse widget-collapse-body">
+                <div class="collapse-body">
+                  <div class="widget-menu-wrap">
+                    <ul class="nav-menu">
+                      <li><a href="/shop">Бренды</a></li>
+                      <li><a href="/shop">Специально</a></li>
+                      <li><a href="/account">Аккаунт</a></li>
+                      <li><a href="/about-us">О нас</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="widget-item">
+              <h4 class="widget-title">Контактная информация:</h4>
+              <h4 class="widget-collapsed-title collapsed" data-bs-toggle="collapse" data-bs-target="#widgetId-3">Contact Info:</h4>
+              <div id="widgetId-3" class="collapse widget-collapse-body">
+                <div class="collapse-body">
+                  <div class="widget-contact-info">
+                    <p class="contact-info-desc">Если у вас есть вопросы <a href="mailto://demo@example.com">demo@example.com</a></p>
+                    <div class="contact-item">
+                      <div class="icon">
+                        <i class="pe-7s-map-marker"></i>
+                      </div>
+                      <div class="info">
+                        <p>Ваш адрес. <br>г.Москва</p>
+                      </div>
+                    </div>
+                    <div class="contact-item phone-info">
+                      <div class="icon">
+                        <i class="pe-7s-phone"></i>
+                      </div>
+                      <div class="info">
+                        <p><span>Телефон поддержки</span> <br><a href="tel://0123456789">+0 123 456 789</a></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--== End Footer Main ==-->
+
+    <!--== Start Footer Bottom ==-->
+    <div class="footer-bottom">
+      <div class="container pt--0 pb--0">
+        <div class="row">
+          <div class="col-12">
+            <div class="footer-bottom-content">
+              <p class="copyright">© 2024. Petpet<i class="fa fa-heart"></i></p>
+              <div class="payment">
+                <a href="/account"><img src="../../../media/img-shop/photos/payment.webp" width="192" height="21" alt="Payment Logo"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--== End Footer Bottom ==-->
+  </footer>
+  <!--== End Footer Area Wrapper ==-->
+
+  <!--== Scroll Top Button ==-->
+  <div id="scroll-to-top" class="scroll-to-top"><span class="fa fa-angle-up"></span></div>
+
+  <!--== Start Product Quick Wishlist Modal ==-->
+  <aside class="product-action-modal modal fade" id="action-WishlistModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="product-action-view-content">
+            <button type="button" class="btn-close" data-bs-dismiss="modal">
+              <i class="pe-7s-close"></i>
+            </button>
+            <div class="modal-action-messages">
+              <i class="pe-7s-check"></i>  Добавлено в список желаемого!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <!--== End Product Quick Wishlist Modal ==-->
+
+  <!--== Start Product Quick Add Cart Modal ==-->
+  {% for item in item %}
+  <aside class="product-action-modal modal fade" id="action-CartAddModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="product-action-view-content">
+            <button type="button" class="btn-close" data-bs-dismiss="modal">
+              <i class="pe-7s-close"></i>
+            </button>
+            <div class="modal-action-messages">
+              <i class="pe-7s-check"></i>  Успешно добавлено!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  {% endfor %}
+  <!--== End Product Quick Add Cart Modal ==-->
+
+
+  <!--== Start Aside Cart ==-->
+  <aside class="aside-cart-wrapper offcanvas offcanvas-end" tabindex="-1" id="AsideOffcanvasCart" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h1 class="d-none" id="offcanvasRightLabel">Корзина</h1>
+      <button class="btn-aside-cart-close" data-bs-dismiss="offcanvas" aria-label="Close">Корзина<i class="fa fa-chevron-right"></i></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="aside-cart-product-list">
+        {% for cheque in cheque %}
+        <li class="aside-product-list-item">
+          <form action="/remove/{{cheque.id}}" method="post">
+                        {% csrf_token %}
+                          <input type="submit" value="X">
+                        </form>
+          <a href="/single-product/{{cheque.item_id}}">
+            <img src="{{ cheque.image.url }}" width="90" height="110" alt="Image-HasTech">
+            <span class="product-title">{{cheque.item_name_id}}</span>
+          </a>
+          <span class="product-price">{{cheque.quantity}} × {{ cheque.price }} ₽</span>
+        </li>
+        {% endfor %}
+      </ul>
+      <p class="cart-total"><span>Всего:</span><span class="amount">{{ total }} ₽</span></p>
+      <a class="btn-total" href="/cart">Корзина</a>
+      <a class="btn-total" href="/shop-checkout">Оплата</a>
+      <a class="d-block text-end lh-1" href="/shop-checkout"><img src="../../../media/img-shop/photos/paypal.webp" width="133" height="26" alt="Has-image"></a>
+    </div>
+  </aside>
+  <!--== End Aside Cart ==-->
+
+  <!--== Start Aside Search Form ==-->
+  <aside class="aside-search-box-wrapper offcanvas offcanvas-top" tabindex="-1" id="AsideOffcanvasSearch" aria-labelledby="offcanvasTopLabel">
+    <div class="offcanvas-header">
+      <h5 class="d-none" id="offcanvasTopLabel">Боковой Поиск</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="pe-7s-close"></i></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="container pt--0 pb--0">
+        <div class="search-box-form-wrap">
+          <div class="search-note">
+            <p>Поиск</p>
+          </div>
+          <form action="" method="post">
+            <div class="search-form position-relative">
+              <label for="search-input" class="visually-hidden">Поиск</label>
+              <input id="search-input" type="search" class="form-control" placeholder="Search entire store…">
+              <button class="search-button"><i class="fa fa-search"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <!--== End Aside Search Form ==-->
+
+  <!--== Start Aside Menu ==-->
+  <aside class="off-canvas-wrapper offcanvas offcanvas-start" tabindex="-1" id="AsideOffcanvasMenu" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h1 class="d-none" id="offcanvasExampleLabel">Боковое меню</h1>
+      <button class="btn-menu-close" data-bs-dismiss="offcanvas" aria-label="Close">menu <i class="fa fa-chevron-left"></i></button>
+    </div>
+    <div class="offcanvas-body">
+      <nav id="offcanvasNav" class="offcanvas-menu-nav">
+        <ul>
+          <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="/">Главная</a></li>
+
+          <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="/about-us">О нас</a></li>
+
+          <li class="offcanvas-nav-parent">
+            <a class="offcanvas-nav-item" href="javascript:void(0)">Магазин</a>
+            <ul>
+                  <li><a href="/shop"><span>Магазин</span></a></li>
+                  <li><a href="/cart"><span>Корзина</span></a></li>
+                  <li><a href="/shop-checkout"><span>Оплата</span></a></li>
+            </ul>
+          </li>
+
+
+          <li class="offcanvas-nav-parent">
+            <a class="offcanvas-nav-item" href="javascript:void(0)">Страницы</a>
+            <ul>
+              <li><a href="/account"><span>Аккаунт</span></a></li>
+              <li><a href="/account-login"><span>Войти</span></a></li>
+              <li><a href="/account-register"><span>Регистрация</span></a></li>
+            </ul>
+          </li>
+
+          <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="/contact">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+  <!--== End Aside Menu ==-->
+</div>
+
+<!--=======================Javascript============================-->
+
+<!--=== jQuery Modernizr Min Js ===-->
+<script type="text/javascript" src="../../static/js/modernizr.js"></script>
+<!--=== jQuery Min Js ===-->
+<script type="text/javascript" src="../../static/js/jquery-main.js"></script>
+<!--=== jQuery Migration Min Js ===-->
+<script type="text/javascript" src="../../static/js/jquery-migrate.js"></script>
+<!--=== jQuery Popper Min Js ===-->
+<script type="text/javascript" src="../../static/js/popper.min.js"></script>
+<!--=== jQuery Bootstrap Min Js ===-->
+<script type="text/javascript" src="../../static/js/bootstrap.min.js"></script>
+<!--=== jQuery Swiper Min Js ===-->
+<script type="text/javascript" src="../../static/js/swiper.min.js"></script>
+<!--=== jQuery Fancybox Min Js ===-->
+<script type="text/javascript" src="../../static/js/fancybox.min.js"></script>
+<!--=== jQuery Countdown Min Js ===-->
+<script type="text/javascript" src="../../static/js/countdown.js"></script>
+<!--=== jQuery Isotope Min Js ===-->
+<script type="text/javascript" src="../../static/js/isotope.pkgd.min.js"></script>
+<!--=== jQuery Range Slider Min Js ===-->
+<script type="text/javascript" src="../../static/js/ion.rangeSlider.min.js"></script>
+
+<!--=== jQuery Custom Js ===-->
+<script type="text/javascript" src="../../static/js/custom.js"></script>
+
+</body>
+
+</html>
